@@ -21,7 +21,7 @@ io.on('connection', socket => {
     socket.on('new message', message => {
         console.log('新しいメッセージが届きました: ' + message);
         // すべてのクライアントにメッセージを送信
-        io.emit('new message', message);
+        io.emit('new message', socket.id + ":" + message);
     });
 });
 
